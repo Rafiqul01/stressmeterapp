@@ -48,6 +48,14 @@
                 str += "YOUR SCORE IS " + n + ".";
 
                 $("#out").html(str);
+                $("#diseases").hide();
+                $("#advice").hide();
+                $("#symptom").hide();
+                $("#sym").hide();
+                $("#dis").hide();
+                $("#adv").hide();
+                $("#dis").hide();
+                $("#adv").hide();
             }
 
 
@@ -75,14 +83,38 @@
                 disease_str += "Heart diseases, Diabetes, Schizophrenia, Multiple sclerosis, Sudden death, Depression, Obesity, Alzheimer’s diseases.";
                 advice_str += "Yoga, Physical exercise, Family bonding, Recreation, Good working environment, Reading book.";
             }
-            $("#diseases").show();
-            $("#advice").show();
-            $("#symptom").show();
-            $("#sym").show();
-            $("#dis").show();
-            $("#adv").show();
-            $("#dis").html(disease_str);
-            $("#adv").html(advice_str);
+
+
+            var sname = "";
+            sname += $("#name").val();
+            if (sname == "") alert("Enter your name.");
+            else {
+                var n = score;
+                var str = "HELLO " + sname + ", YOU ARE IN ";
+
+                if (n <= 20)
+                    str += "LOW RISK.";
+                else if (n <= 26)
+                    str += "INTERMEDIATE RISK. ";
+                else if (n <= 32)
+                    str += "HIGH LEVEL RISK. ";
+                else
+                    str += "VERY HIGH LEVEL RISK. ";
+
+                str += "YOUR SCORE IS " + n + ".";
+
+                $("#out").html(str);
+                $("#diseases").show();
+                $("#advice").show();
+                $("#symptom").show();
+                $("#sym").show();
+                $("#dis").show();
+                $("#adv").show();
+                $("#dis").html(disease_str);
+                $("#adv").html(advice_str);
+            }
+
+
         }
 
     </script>
@@ -212,7 +244,7 @@
             <button type="button" id="calculate" onclick="Calculate()">Calculate</button>
             <button type="button" id="clear" onclick="Clear()">Clear</button><br><br>
             <label for="score"><b>Enter your score: </b></label><br>
-            <input type="number" id="score">
+            <input type="number" id="score" placeholder="Enter score..">
             <button type="button" id="check" onclick="Check()">Check</button>
         </div>
         <div class="col-3">
@@ -240,7 +272,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
