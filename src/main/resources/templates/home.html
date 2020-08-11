@@ -36,7 +36,9 @@
 
                 var str = "HELLO " + sname + ", YOU ARE IN ";
 
-                if (n <= 20)
+                if(score < 0)
+                    alert("Invalid score..");
+                else if (n <= 20)
                     str += "LOW RISK.";
                 else if (n <= 26)
                     str += "INTERMEDIATE RISK. ";
